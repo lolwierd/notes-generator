@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-ai-notes",
+  "name": "AI Notes",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Generate and expand notes using OpenAI's API",
+  "author": "lolwierd",
+  "authorUrl": "https://github.com/lolwierd",
+  "isDesktopOnly": false
+}
