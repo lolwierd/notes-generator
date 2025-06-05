@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "strict": true,
+    "types": ["obsidian"],
+    "esModuleInterop": true
+  },
+  "include": ["*.ts"]
+}
