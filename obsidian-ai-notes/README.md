@@ -4,11 +4,12 @@ This plugin allows you to generate new notes or expand existing selections using
 
 ## Development
 
-Install dependencies and run the build script:
+Install dependencies and build:
 
 ```bash
-npm install
-npm run build
+make build
 ```
 
 Copy the `obsidian-ai-notes` folder into your Obsidian plugins directory to use.
+Alternatively run `make install` to build and copy the plugin automatically. The
+default install path is defined in the `Makefile`.
