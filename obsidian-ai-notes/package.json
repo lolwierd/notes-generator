@@ -2,7 +2,7 @@
   "name": "obsidian-ai-notes",
   "version": "1.0.0",
   "description": "Generate and expand notes using OpenAI's API",
-  "main": "dist/main.js",
+  "main": "main.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c"

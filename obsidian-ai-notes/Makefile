@@ -9,5 +9,5 @@ build:
 install: build
 	mkdir -p "$(PLUGIN_PATH)"
 	cp manifest.json "$(PLUGIN_PATH)/"
-	cp -r dist "$(PLUGIN_PATH)/"
+	cp main.js "$(PLUGIN_PATH)/"
 	if [ -f styles.css ]; then cp styles.css "$(PLUGIN_PATH)/"; fi
