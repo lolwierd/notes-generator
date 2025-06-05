@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from 'openai';
 import { AiNotesSettings } from './settings';
 
 export class ApiClient {
@@ -16,7 +16,7 @@ export class ApiClient {
 
   async generateNote(topic: string): Promise<string> {
     if (!this.settings.apiKey) throw new Error('API key is missing');
-    const messages = [
+    const messages: ChatCompletionRequestMessage[] = [
       { role: 'system', content: this.settings.systemPrompt },
       { role: 'user', content: `Write a comprehensive note about ${topic}.` }
     ];
@@ -36,7 +36,7 @@ export class ApiClient {
 
   async expandSelection(text: string): Promise<string> {
     if (!this.settings.apiKey) throw new Error('API key is missing');
-    const messages = [
+    const messages: ChatCompletionRequestMessage[] = [
       { role: 'system', content: this.settings.systemPrompt },
       { role: 'user', content: `Expand on the following content in detail:\n${text}` }
     ];

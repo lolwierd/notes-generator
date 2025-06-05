@@ -1,4 +1,4 @@
-import { App, Notice, TFile, moment } from 'obsidian';
+import { App, Notice, TFile, MarkdownView } from 'obsidian';
 
 export async function createNewNote(app: App, title: string, content: string): Promise<TFile | null> {
   try {
@@ -13,7 +13,7 @@ export async function createNewNote(app: App, title: string, content: string): P
 }
 
 export function insertLinkAtCursor(app: App, file: TFile): void {
-  const view = app.workspace.getActiveViewOfType(<any>app.plugins.getPlugin('markdown').MarkdownView);
+  const view = app.workspace.getActiveViewOfType(MarkdownView);
   const editor = view?.editor;
   if (!editor) return;
   const link = app.metadataCache.fileToLinktext(file, '', true);
@@ -22,6 +22,6 @@ export function insertLinkAtCursor(app: App, file: TFile): void {
 
 export function sanitizeFileName(name: string): string {
   const cleaned = name.replace(/[^a-zA-Z0-9-_ ]/g, '').replace(/\s+/g, '-');
-  const timestamp = moment().format('YYYYMMDDHHmmss');
+  const timestamp = new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
   return `${cleaned}-${timestamp}`;
 }

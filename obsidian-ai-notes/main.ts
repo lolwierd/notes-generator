@@ -4,7 +4,7 @@ import { createNewNote, insertLinkAtCursor } from './utils';
 import { AiNotesSettingTab, AiNotesSettings, DEFAULT_SETTINGS } from './settings';
 
 export default class AiNotesPlugin extends Plugin {
-  settings: AiNotesSettings;
+  settings: AiNotesSettings = DEFAULT_SETTINGS;
   apiClient: ApiClient | null = null;
 
   async onload() {
@@ -26,7 +26,7 @@ export default class AiNotesPlugin extends Plugin {
   }
 
   async handleCreateNote() {
-    const topic = await this.app.prompt('Enter a topic for the new note');
+    const topic = window.prompt('Enter a topic for the new note') || '';
     if (!topic || !this.apiClient) return;
     try {
       const content = await this.apiClient.generateNote(topic);
